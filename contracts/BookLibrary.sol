@@ -28,7 +28,7 @@ contract BookLib is Ownable {     //  REMINDER DO NOT USE ARRAYs, care with mapp
     // user can borrow just 1 copy of a book
     function borrowBook(bytes32 _id) public  {
         require(bytesToBooks[_id].count>0 && addressToOwner[msg.sender][_id]==false);
-        if(!addressToOwner[msg.sender][_id]){
+        if(addressToOwner[msg.sender][_id]){
               bytesToBooks[_id].borowers.push(msg.sender);
         }
         bytesToBooks[_id].count--;
@@ -37,7 +37,6 @@ contract BookLib is Ownable {     //  REMINDER DO NOT USE ARRAYs, care with mapp
     
     // return borrowBook
     function returnBorrowedBook(bytes32 _id) public {
-        addressToOwner[msg.sender][_id]=false;
         addressToOwner[msg.sender][_id]=false;
         bytesToBooks[_id].count++;
     }

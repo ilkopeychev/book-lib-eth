@@ -6,7 +6,7 @@ import "./Ownable.sol";
 contract BookLib is Ownable {     //  REMINDER DO NOT USE ARRAYs, care with mapping sync, try to use memory instead of storrage whereven you can, watch transaction expence
 
     
-    mapping(address=>mapping(bytes32=>bool)) public addressToOwner; // addresses of the owners of the books
+    mapping(address=>mapping(bytes32=>bool)) public borowedBooks; // addresses of the owners of the books
     mapping(bytes32=>Book) public bytesToBooks;
     
     bytes32[] private availableBooksIds;
@@ -27,17 +27,17 @@ contract BookLib is Ownable {     //  REMINDER DO NOT USE ARRAYs, care with mapp
 
     // user can borrow just 1 copy of a book
     function borrowBook(bytes32 _id) public  {
-        require(bytesToBooks[_id].count>0 && addressToOwner[msg.sender][_id]==false);
-        if(addressToOwner[msg.sender][_id]){
+        require(bytesToBooks[_id].count>0 && borowedBooks[msg.sender][_id]==false);
+        if(borowedBooks[msg.sender][_id]){
               bytesToBooks[_id].borowers.push(msg.sender);
         }
         bytesToBooks[_id].count--;
-        addressToOwner[msg.sender][_id]=true;
+        borowedBooks[msg.sender][_id]=true;
     }
     
     // return borrowBook
     function returnBorrowedBook(bytes32 _id) public {
-        addressToOwner[msg.sender][_id]=false;
+        borowedBooks[msg.sender][_id]=false;
         bytesToBooks[_id].count++;
     }
     

@@ -17,7 +17,7 @@ const run = async function () {
   console.log(hre.ethers.utils.formatEther(balance, 18));
 
   const BookLibraryContract = new hre.ethers.Contract(
-    "0xc9707E1e496C12f1Fa83AFbbA8735DA697cdBf64",
+    "0x60D551bC821f186ec0B1F4802896Bda7877c2c3f",
     bookLibrary.abi,
     wallet
   );

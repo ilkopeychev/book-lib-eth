@@ -13,8 +13,8 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 
 task("deploy-testnets", "Deploys contract on a provided network").setAction(
   async (taskArguments, hre, runSuper) => {
-    const deployElectionContract = require("./scripts/deploy");
-    await deployElectionContract(taskArguments);
+    const deployBookLibContract = require("./scripts/deploy");
+    await deployBookLibContract(taskArguments);
   }
 );
 
@@ -61,7 +61,7 @@ module.exports = {
     ropsten: {
       url: "https://ropsten.infura.io/v3/6c17c4a175c64100b9d624c48f8e0a80",
       accounts: [
-        "96bd1a183b1a8452ccd3f3aacdeed094551c06b5185919521ef2be7f5621206b",
+        "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80",
       ],
     },
   },

@@ -1,7 +1,7 @@
 const hre = require("hardhat");
 const ethers = hre.ethers;
 
-async function deployElectionContract(_privateKey) {
+async function deployBookLibContract(_privateKey) {
   await hre.run("compile"); // We are compiling the contracts using subtask
   const wallet = new ethers.Wallet(_privateKey, hre.ethers.provider); // New wallet with the privateKey passed from CLI as param
   console.log("Deploying contracts with the account:", wallet.address); // We are printing the address of the deployer
@@ -16,4 +16,4 @@ async function deployElectionContract(_privateKey) {
   console.log("Done!");
 }
 
-module.exports = deployElectionContract;
+module.exports = deployBookLibContract;

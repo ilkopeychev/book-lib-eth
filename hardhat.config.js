@@ -61,7 +61,7 @@ module.exports = {
     ropsten: {
       url: "https://ropsten.infura.io/v3/6c17c4a175c64100b9d624c48f8e0a80",
       accounts: [
-        "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80",
+        "a6c462ccb0db176d8ed1f21d1623d0972950499cb930e4a1a437f06f69f7e0b3",
       ],
     },
   },

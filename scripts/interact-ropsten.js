@@ -8,13 +8,15 @@ const run = async function () {
     "40c2813049e44ec79cb4d7e0d18de173"
   );
 
-  const wallet = new hre.ethers.Wallet("my key", provider);
+  const wallet = new hre.ethers.Wallet(
+    "a6c462ccb0db176d8ed1f21d1623d0972950499cb930e4a1a437f06f69f7e0b3",
+    provider
+  );
 
   const balance = await wallet.getBalance();
-  console.log(hre.ethers.utils.formatEther(balance, 18));
 
   const BookLibraryContract = new hre.ethers.Contract(
-    "0x3d73c9522a534BfC66D46B1Ad4A34C983D7d9D60",
+    "0xCd95e965f2edaA5f9227d3bC35160CA58a47151C",
     bookLibrary.abi,
     wallet
   );
@@ -30,6 +32,7 @@ const run = async function () {
   } else {
     console.log(" SUCCES TRANSACTION");
   }
+  console.log(hre.ethers.utils.formatEther(balance, 18));
 };
 
 run();

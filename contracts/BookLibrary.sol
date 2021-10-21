@@ -1,7 +1,7 @@
 // SPDX-License-Indentifier: MIT
 pragma solidity ^0.8.0;
 pragma abicoder v2;
-import "./Ownable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract BookLib is Ownable {     //  REMINDER DO NOT USE ARRAYs, care with mapping sync, try to use memory instead of storrage whereven you can, watch transaction expence
 

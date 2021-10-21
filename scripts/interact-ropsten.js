@@ -3,17 +3,16 @@ const hre = require("hardhat");
 const bookLibrary = require("../artifacts/contracts/BookLibrary.sol/BookLib.json");
 
 const run = async function () {
-  const provider = new hre.ethers.providers.JsonRpcProvider(
+  const provider = new hre.ethers.providers.InfuraProvider(
     "ropsten",
     "40c2813049e44ec79cb4d7e0d18de173"
   );
-  const latestBlock = await provider.getBlock("latest");
-  console.log(latestBlock.hash);
 
   const wallet = new hre.ethers.Wallet(
-    "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80",
+    "not giving my private key at public repo",
     provider
   );
+
   const balance = await wallet.getBalance();
   console.log(hre.ethers.utils.formatEther(balance, 18));
 
